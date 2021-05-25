@@ -1,5 +1,7 @@
 ## Sorting visualization
 
+Visualizes the randomness of various shuffle algorithms. 
+
 ### Installation 
 ```sh
 npm install

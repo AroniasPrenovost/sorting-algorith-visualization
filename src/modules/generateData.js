@@ -6,16 +6,16 @@ const generateData = () => {
 		let r = i; // order 1, 2, 3... 
 		item.key = r;
 		item.baseColor = 'white';
-		item.color1 = '#ffbe76';
-		item.color2 = '#ff7979';
-		item.color3 = '#badc58';
-		item.color4 = '#dff9fb';
-		item.color5 = '#f9ca24';
-		item.color6 = '#f0932b';
-		item.color7 = '#eb4d4b';
-		item.color8 = '#6ab04c';
-		item.color9 = '#22a6b3';
-		item.color10 = '#be2edd';
+		item.color1 = '#e1e1ef';
+		item.color2 = '#dad2f1';
+		item.color3 = '#dbc2ef';
+		item.color4 = '#e1afe7';
+		item.color5 = '#ea9bd9';
+		item.color6 = '#f484c5';
+		item.color7 = '#fd6cab';
+		item.color8 = '#ff518c';
+		item.color9 = '#ff3268';
+		item.color10 = '#fb0741';
 		item.opacity = .0;  
 		newDataSet.push(item)
 		i++; 

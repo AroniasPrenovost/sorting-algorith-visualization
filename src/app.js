@@ -1,7 +1,7 @@
 import {generateData} from './modules/generateData';
 import {compareData} from './modules/compareData';
 import {generateTable} from './modules/generateTable';
-import {es6shuffle, es6shuffleTwo, prototype, nativeSwap} from "./modules/sortFunctions";
+import {es6shuffle, es6shuffleTwo, prototype, nativeSwap, fisherYates} from "./modules/sortFunctions";
 
 // initialize 
 generateTable();
@@ -23,8 +23,12 @@ let colors = document.getElementsByClassName('color');
 		if (!args) {
 			colors[i].style.backgroundColor = '#22a6b3';
 		} else {
+			
 			// round to 1 decimal point, convert to # 
 			args[i].opacity = Number((Math.round(args[i].opacity * 10) / 10).toFixed(1));
+
+			// assign frquency
+			colors[i].dataset.frequency = args[i].opacity; 
 
 			if (args[i].opacity === .0) {
 				colors[i].style.backgroundColor = args[i].baseColor;
@@ -53,8 +57,5 @@ let colors = document.getElementsByClassName('color');
 	}
 }
 
-// compare pre and post sorted data
-let tableData = compareData(generateData(), es6shuffleTwo);
-
-// color table  
+let tableData = compareData(generateData(), fisherYates);
 colorTable(tableData);
