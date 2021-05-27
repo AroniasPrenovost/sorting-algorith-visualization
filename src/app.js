@@ -65,7 +65,7 @@ populateTable();
 let current = null;
 let tableData = null; 
 document.addEventListener('DOMContentLoaded', function(event) {
-	document.getElementById('shuffle_dropdown').addEventListener('click', function() {
+	document.getElementById('shuffleSelect').addEventListener('click', function() {
 		if (this.value !== current) {
 
 			current = this.value; 
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 					tableData = compareData(generateData(), fisherYates); 
 					break;
 				default:
-					tableData = compareData(generateData(), es6shuffle); 
+					// tableData = compareData(generateData(), es6shuffle); 
 			} 
 
 			populateTable(tableData);

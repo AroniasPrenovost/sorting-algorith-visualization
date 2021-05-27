@@ -1,10 +1,21 @@
+$background: #efefef;
+$white: white; 
+$black: black;
+
 body {
-	background-color: #efefef;
+	background-color: $background;
 }
 
 .container {
 	display: flex;
   justify-content: center;
+}
+
+h1.headline {
+	margin: 3px;
+	padding: 0;
+	font-size: 14px;
+	font-weight: 200;
 }
 
 table {
@@ -15,7 +26,7 @@ table {
 
 td {
 	background-color: none;
-	border:1px solid white;
+	border:1px solid $white;
 	font-size:4px;
 	vertical-align: bottom;
 	min-width: 8px; 
@@ -24,7 +35,7 @@ td {
 
 td.outer {
 	border: none;
-	color: black;
+	color: $black;
 	font-size: 5px;
 }
 
@@ -60,18 +71,14 @@ table, th, td {
   height: 25px;
   width: 80px;
   overflow: auto;
-  background-color: white;
+  background-color: $white;
 	font-size: 12px; 
 	font-weight: bold;
 	text-align: center;
 	line-height: 25px;
 }
 
-#shuffle_dropdown {
+#shuffleSelect {
 	font-size: 12px;
 	text-align: center;
-}
-
-.dropdown {
-	display: inline-block;
 }

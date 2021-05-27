@@ -5,6 +5,12 @@ body {
   display: flex;
   justify-content: center; }
 
+h1.headline {
+  margin: 3px;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 200; }
+
 table {
   border: none;
   width: 200px;
@@ -56,9 +62,6 @@ table, th, td {
   text-align: center;
   line-height: 25px; }
 
-#shuffle_dropdown {
+#shuffleSelect {
   font-size: 12px;
   text-align: center; }
-
-.dropdown {
-  display: inline-block; }
