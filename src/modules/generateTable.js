@@ -17,10 +17,12 @@ const generateTable = () => {
 				p.appendChild(t);
 				td.appendChild(p);
 				td.classList.add('outer');
+				td.dataset.frequency = '';
 			}  
 			if (i === 0 && j !== 0) {
 				td.appendChild(document.createTextNode(j-1));
 				td.classList.add('outer');
+				td.dataset.frequency = '';
 			}
 			if (i !== 0 && j !== 0) {
 				td.classList.add('color');
@@ -30,23 +32,19 @@ const generateTable = () => {
 			let modalId = 'modal_' + i+j; 
 			td.onmouseover = function(e) {
 				e.preventDefault();
-				if (!this.classList.contains('outer')) {
-					// add modal 
-					let newElement = document.createElement('div');
-					newElement.id = modalId; 
-					newElement.classList += 'modal-overlay';
-					newElement.style.margin = (e.clientY /1.5) + 'px 0px 0px ' + (e.clientX / 1.5) + 'px'; 
-					newElement.innerText = 'Frequency: ' + this.dataset.frequency + ''; 
-					document.body.append(newElement)
-				}
+				if (!this.dataset.frequency || this.dataset.frequency.length === 0 ) return; 
+				let newElement = document.createElement('div');
+				newElement.id = modalId; 
+				newElement.classList += 'modal-overlay';
+				newElement.style.margin = (e.clientY /1.5) + 'px 0px 0px ' + (e.clientX / 1.5) + 'px'; 
+				newElement.innerText = 'Frequency: ' + this.dataset.frequency + ''; 
+				document.body.append(newElement)
 			}
 
 			td.onmouseout = function(e) {
 				e.preventDefault();
-				if (!this.classList.contains('outer')) {
-					// remove modal 
-					document.getElementById(modalId).outerHTML = '';
-				}
+				if (!this.dataset.frequency || this.dataset.frequency.length === 0 ) return; 
+				document.getElementById(modalId).outerHTML = '';
 			}
 			
 			tr.appendChild(td);

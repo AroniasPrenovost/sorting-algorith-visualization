@@ -7,7 +7,7 @@ import {es6shuffle, es6shuffleTwo, prototype, nativeSwap, fisherYates} from "./m
 generateTable();
 
 // pass sorted outcome to the table
-const colorTable = args => {
+const populateTable = args => {
 let colors = document.getElementsByClassName('color');
 	for(let i = 0; i < colors.length; i++){
 		// monotone heat map 
@@ -22,13 +22,14 @@ let colors = document.getElementsByClassName('color');
 		// color spectrum 
 		if (!args) {
 			colors[i].style.backgroundColor = '#22a6b3';
+			colors[i].dataset.frequency = ''; 
 		} else {
 			
-			// round to 1 decimal point, convert to # 
+			// round to 1 decimal point 
 			args[i].opacity = Number((Math.round(args[i].opacity * 10) / 10).toFixed(1));
 
 			// assign frquency
-			colors[i].dataset.frequency = args[i].opacity; 
+			colors[i].dataset.frequency = args[i].opacity * 10; 
 
 			if (args[i].opacity === .0) {
 				colors[i].style.backgroundColor = args[i].baseColor;
@@ -57,5 +58,39 @@ let colors = document.getElementsByClassName('color');
 	}
 }
 
-let tableData = compareData(generateData(), fisherYates);
-colorTable(tableData);
+// populate empty table 
+populateTable();
+
+// shuffle dropdown 
+let current = null;
+let tableData = null; 
+document.addEventListener('DOMContentLoaded', function(event) {
+	document.getElementById('shuffle_dropdown').addEventListener('click', function() {
+		if (this.value !== current) {
+
+			current = this.value; 
+
+			switch(this.value) {
+				case 'es6Shuffle':
+					tableData = compareData(generateData(), es6shuffle); 
+					break;
+				case 'es6ShuffleTwo':
+					tableData = compareData(generateData(), es6shuffleTwo); 
+					break;
+				case 'prototype':
+					tableData = compareData(generateData(), prototype); 
+					break;
+				case 'nativeSwap': 
+					tableData = compareData(generateData(), nativeSwap); 
+					break; 
+				case 'fisherYates': 
+					tableData = compareData(generateData(), fisherYates); 
+					break;
+				default:
+					tableData = compareData(generateData(), es6shuffle); 
+			} 
+
+			populateTable(tableData);
+		}
+	}); 	
+}); 

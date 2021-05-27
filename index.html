@@ -9,23 +9,22 @@
 <body>
 	<div class='container'>
 		<p>Visualizing a shuffle algorithm's randomness.</p>
-		<select name='shuffleFuncs' data-val='dd' id='shuffleFuncs' onchange='jsFunction(this.value);'>
-			<option value=''>Select</option>
-			<option value='es6Shuffle'>ES6 Shuffle</option>
-			<option value='es6ShuffleTwo'>ES6 Shuffle Two</option>
-			<option value='prototype'>Prototype</option>
-			<option value='nativeSwap'>Native Swap</option>
-			<option value='fisherYates'>Fisher-Yates</option>
-		</select>
+		<div class='dropdown'>
+			<select id='shuffle_dropdown'>
+				<option value='' disabled selected>Select</option>
+				<option value='es6Shuffle'>ES6 Shuffle</option>
+				<option value='es6ShuffleTwo'>ES6 Shuffle Two</option>
+				<option value='prototype'>Prototype</option>
+				<option value='nativeSwap'>Native Swap</option>
+				<option value='fisherYates'>Fisher-Yates</option>
+			</select>
+		</div>
 	</div>
 	<div class='container'>
     <div id='myDynamicTable'>
 			<!-- where magic happens --> 
 		</div>
 	</div>
-	<script>
-		// add dropdown toggle functionality
-  </script>
 	<script src='dist/bundle.js'></script>
 	<script>
 </script>
